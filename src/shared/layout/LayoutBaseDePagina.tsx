@@ -23,6 +23,7 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({
 }) => {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const mdDown = useMediaQuery(theme.breakpoints.down("md"));
   const { toggleDrawerOpen } = useDrawerContext();
   return (
     <Box
@@ -34,10 +35,10 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({
     >
       <Box
         padding={1}
-        height={theme.spacing(12)}
         display="flex"
         alignItems="center"
         gap={1}
+        height={theme.spacing(smDown ? 6 : mdDown ? 8 : 12)}
       >
         {smDown && (
           <IconButton onClick={toggleDrawerOpen}>
@@ -45,7 +46,7 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({
           </IconButton>
         )}
         <Typography
-          variant="h5"
+          variant={smDown ? "h5" : mdDown ? "h4" : "h3"}
           overflow="hiddem"
           whiteSpace="nowrap"
           textOverflow="ellipsis"

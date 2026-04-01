@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material";
 import { lightBlue, indigo } from "@mui/material/colors";
 export const DarkTheme = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: indigo[800],
       dark: indigo[900],
@@ -17,6 +18,11 @@ export const DarkTheme = createTheme({
     background: {
       default: "#202124",
       paper: "#303134",
+    },
+  },
+  typography: {
+    allVariants: {
+      color: "#ffffff",
     },
   },
 });
